@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.devtest.devtest.mapper.LoginMapper">
+    <select id="getUser" parameterType="String" resultType="User">
+        SELECT   *
+        FROM    huntuser
+        WHERE   email = #{email}
+    </select>
+
+    <select id="getNickname" parameterType="String" resultType="User">
+        SELECT   *
+        FROM    huntuser
+        WHERE   nickname = #{nickname}
+    </select>
+
+    <insert id="insertUser" keyProperty="uno">
+        <selectKey keyProperty="uno" resultType="int" order="BEFORE">
+            SELECT COALESCE(MAX(uno), 0) + 1 AS uno
+            FROM   huntuser
+        </selectKey>
+        INSERT INTO huntuser (uno, email, pass, nickname, sex, birth, phone)
+        VALUES (#{uno}, #{email}, #{pass}, #{nickname}, #{sex}, #{birth}, #{phone})
+    </insert>
+
+</mapper>
