@@ -18,17 +18,17 @@ https://user-images.githubusercontent.com/79193811/208591236-93ca5b07-20c3-4e4b-
 
 ### 사용한 기술 및 라이브러리
 
-#### Spring framework
+* Spring framework
 
-#### React
+* React
 
-#### Docker
+* Docker
 
-#### AWS EC2
+* AWS EC2
 
-#### Google Driver
+* Google Driver
 
-#### GitAction
+* GitAction
 
-#### Selenium
+* Selenium
 
