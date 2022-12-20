@@ -1,6 +1,6 @@
 ## 채용 공고 쉽고 한눈에 보기위해 만든 웹 어플리케이션 - JobHunt
 
-https://user-images.githubusercontent.com/79193811/208593186-40150f19-09ad-4ec9-b169-7e67d62b6275.mp4
+https://user-images.githubusercontent.com/79193811/208593262-78fd9cda-2081-4133-9e3b-fa0e1a3a42b9.mp4
 
 
 ### 프로젝트 기간
