@@ -32,3 +32,20 @@ https://user-images.githubusercontent.com/79193811/208591236-93ca5b07-20c3-4e4b-
 
 * Selenium
 
+* JWT 
+
+### 깨달은점
+
+* 백엔드만 해온 제가 react를 접해보면서 어떤식으로 렌더링이 되는지 useEffect useState를 어느때 사용하는 지 알 수있었습니다.
+
+* Axios 비동기 통신을 이용하여 GET,POST API를 호출하고 보내는 방식을 알게 되었습니다.
+
+* Restful Api 에서는 Session을 잘 사용하지않고 JWT를 이용하여 로그인을 한다는것을 알게 되었습니다.
+
+* JWT 로그인은 Header,payload,Signature 로 구성이 되고 hedaer에 담아서 사용한다는것을 알게되었습니다.
+
+* 동적크롤링을 통해 셀레니움 구글드라이브를 사용해보았으며, div.class명을 통해 크롤링을 하는방법을 깨달았습니다.
+
+* git action을 통해 pipleline을 구축하고 cron을 통해 주기적으로 json파일이 만들어지게 함으로써 주기적인 업데이트를 가능하게 할 수있다는것을 깨달았습니다.
+
+
