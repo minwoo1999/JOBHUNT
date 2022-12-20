@@ -47,4 +47,8 @@ https://user-images.githubusercontent.com/79193811/208593356-b214aabe-4600-45db-
 
 * git action을 통해 pipleline을 구축하고 cron을 통해 주기적으로 json파일이 만들어지게 함으로써 주기적인 업데이트를 가능하게 할 수있다는것을 깨달았습니다.
 
+* rest api 와 restful api의 차이점을 알게 되었습니다.
+
+###### 참고자료:https://dev-coco.tistory.com/97
+
 
