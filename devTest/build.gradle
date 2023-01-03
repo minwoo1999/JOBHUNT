@@ -50,10 +50,6 @@ dependencies {
 // compile file()
 
 
-node {
-    download = true
-}
-
 def frontendDir = "$projectDir/src/main/test_dev"
 
 sourceSets {
