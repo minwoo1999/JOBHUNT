@@ -7,4 +7,4 @@ ENV TZ=Asia/Seoul
 
 EXPOSE 8888
 
-CMD ["java", "-jar", "/application.jar/"]
+CMD ["java", "-jar", "/application.jar"]
