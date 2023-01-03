@@ -1,7 +1,7 @@
 
 FROM openjdk:11
 
-COPY ./build/libs/*.jar application.jar/
+COPY ./build/libs/devTest-0.0.1-SNAPSHOT.jar application.jar
 
 ENV TZ=Asia/Seoul
 
