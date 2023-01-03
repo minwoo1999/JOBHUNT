@@ -47,7 +47,7 @@ dependencies {
 
 }
 
-compile file()
+// compile file()
 
 
 def frontendDir = "$projectDir/src/main/test_dev"
