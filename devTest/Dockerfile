@@ -1,7 +1,7 @@
 
 FROM openjdk:11
 
-COPY build/libs/*.jar application.jar/
+COPY build/libs/*.jar application.jar
 
 ENV TZ=Asia/Seoul
 
