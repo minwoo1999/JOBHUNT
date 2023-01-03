@@ -28,19 +28,75 @@ function MyPageContent() {
     company_link: '',
     // 채용정보
   }])
-  const run = () =>{
+  const run = () => {
     axios
-      .get("/mypage", {
-        headers: {
-            Authorization: `${sessionStorage.getItem("tokenId")}`
-        }
-    })
-      .then((res) => {
-        // console.log(res.data);
-        setInputData(res.data)
-      })
-    }
-  useEffect(run, [])
+        .get("/mypage", {
+            headers: {
+                Authorization: `${sessionStorage.getItem("tokenId")}`,
+                refreshTokenId: `${sessionStorage.getItem("refreshTokenId")}`
+            }
+        })
+        .then((res) => {
+            console.log(res.data);
+            console.log(sessionStorage.getItem("tokenId"));
+            console.log(sessionStorage.getItem("refreshTokenId"));
+            setInputData(res.data)
+
+            // if (res.data == true) {
+            //     // console.log(res.data)
+
+            // } 
+            if (res.data[0] == "false") {
+                sessionStorage.removeItem("tokenId")
+                console.log(res.data);
+                axios.get("/refresh", {
+                    headers: {
+                        refreshTokenId: `${sessionStorage.getItem("refreshTokenId")}`
+                    }
+                }).then((res) => {
+                    console.log(res.data);
+                    sessionStorage.setItem("tokenId", res.data)
+                    
+                    if (res.data[0] == "false"){
+                        
+
+                
+                        Swal.fire({
+                            title: '로그인 유효시간 종료!',
+                            text: '로그인 페이지로 이동하시겠습니까?',
+                            icon: 'warning',
+    
+                            showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+                            confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+                            cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+                            confirmButtonText: '승인', // confirm 버튼 텍스트 지정
+                            cancelButtonText: '취소', // cancel 버튼 텍스트 지정
+    
+                            reverseButtons: true, // 버튼 순서 거꾸로
+
+                            
+    
+                        }).then(result => {
+
+                            sessionStorage.clear()
+                            // 만약 Promise리턴을 받으면,
+                            if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면
+    
+                                window.location.href = "/login";
+                            }else{
+                                window.location.href = "/";
+                            }
+                        });
+                    }else if (res.data == sessionStorage.getItem("tokenId")) { 
+                      window.location.href = "/mypage";
+                    }
+                })
+            } 
+            
+        })
+}
+
+useEffect(run, [])
   console.log(inputData);
 
   const jlink = (link, e) => {
@@ -198,9 +254,9 @@ const delete_bookmark= (e, companyname) => {
                     <h2 class="card-body-heading">{props.name}</h2>
                     <div class="card-body-options">
                         <div class="card-body-option card-body-option-favorite">
-                            <svg fill="#9C948A" height="26" viewBox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg" onClick={(e) => { bookmark(e, props.name, props.plan, props.img, props.link) }}>
+                            <svg fill="#d12e46" height="26" viewBox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg" onClick={(e) => { bookmark(e, props.name, props.plan, props.img, props.link) }}>
                                 <path d="M0 0h24v24H0z" fill="none" />
-                                <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z" />
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
                         </div>
                         <div class="card-body-option card-body-option-share">

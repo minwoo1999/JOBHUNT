@@ -24,4 +24,6 @@ public interface LoginMapper {
     int delete_User_BookMark(@Param(value = "companyname") String companyname, @Param(value = "uno") int uno);
 
     Integer get_HUNTUSER_BOOKMARK_Check(@Param(value = "companyname") String companyname, @Param(value = "uno") int uno);
+
+    List<HUNTUSER_BOOKMARK> BookMark_Check(String email);
 }

@@ -58,4 +58,12 @@
         WHERE   uno= #{uno} and companyname= #{companyname}
     </select>
 
+    <select id="BookMark_Check" resultType="HUNTUSER_BOOKMARK">
+    SELECT   *
+    FROM    HUNTUSER_BOOKMARK
+    WHERE   uno = (SELECT UNO
+    FROM    HUNTUSER
+    WHERE   email = #{email})
+    </select>
+
 </mapper>

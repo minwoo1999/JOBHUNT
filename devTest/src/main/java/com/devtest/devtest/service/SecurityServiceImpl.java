@@ -57,15 +57,15 @@ public class SecurityServiceImpl implements SecurityService {
     }
 
     @Override
-    public Boolean jwtExpireCheck(int time) {
+    public String jwtExpireCheck(int time) {
         int CurrentTime = (int) ((new Date().getTime()));
 
         if (time >= CurrentTime) {
-            System.out.println("유효시간 남음");
-            return true;
+            System.out.println("유효시간 남음!_!_!_!_!");
+            return "true";
         } else {
-            System.out.println("유효시간 끝남");
-            return false;
+            System.out.println("유효시간 끝남!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!");
+            return "false";
         }
 
 

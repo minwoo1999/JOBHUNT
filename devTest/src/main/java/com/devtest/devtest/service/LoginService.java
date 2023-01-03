@@ -22,4 +22,6 @@ public interface LoginService {
 
     Integer get_HUNTUSER_BOOKMARK_Check(String companyname,int uno);
 
+    List<HUNTUSER_BOOKMARK> BookMark_Check(String email);
+
 }

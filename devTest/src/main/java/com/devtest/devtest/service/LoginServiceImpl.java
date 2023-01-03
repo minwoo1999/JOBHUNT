@@ -54,4 +54,9 @@ public class LoginServiceImpl implements LoginService{
     public List<User> getUserList(String email) {
         return loginMapper.getUserList(email);
     }
+
+    @Override
+    public List<HUNTUSER_BOOKMARK> BookMark_Check(String email) {
+        return loginMapper.BookMark_Check(email);
+    }
 }
